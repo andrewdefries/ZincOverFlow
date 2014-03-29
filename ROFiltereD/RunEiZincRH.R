@@ -12,8 +12,11 @@ valid <- validSDF(sdfset)
 sdfset <- sdfset[valid]
 apset<-sdf2ap(sdfset)
 sdfset<-sdfset[!sapply(as(apset,"list"),length)==1]
+cid(sdfset)<-sdfid(sdfset)
 ####################
-eiInit(sdfset)
+write.SDF(sdfset, file=files[a], cid=T, sig=T)
+####################
+eiInit(files[a])
 }
 #################
 ####################
